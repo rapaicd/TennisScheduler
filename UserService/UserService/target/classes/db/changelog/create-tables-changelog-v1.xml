@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet author="milica" id="create-7">
+        <createTable tableName="role">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="role_name" type="integer">
+                <constraints/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="danilo">
+        <createTable tableName="person">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="character varying(255)">
+                <constraints/>
+            </column>
+            <column name="last_name" type="character varying(255)">
+                <constraints/>
+            </column>
+            <column name="email" type="character varying(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="gender" type="integer">
+                <constraints/>
+            </column>
+            <column name="phone_number" type="character varying(255)">
+                <constraints/>
+            </column>
+            <column name="birthday" type="timestamp">
+                <constraints/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints/>
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="milica" id="fk-868">
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="person"
+                                 constraintName="fk_role"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role"/>
+    </changeSet>
+</databaseChangeLog>

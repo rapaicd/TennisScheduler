@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="danilo" author="3213">
+        <dropForeignKeyConstraint baseTableName="person" constraintName="fk_role"/>
+    </changeSet>
+
+    <changeSet author="danilo" id="123123">
+        <dropTable tableName="role"/>
+    </changeSet>
+
+    <changeSet  author="danilo"  id="33333">
+        <dropColumn  tableName="person">
+            <column  name="role_id"/>
+            <column name="password"/>
+            <column name="enabled"/>
+        </dropColumn>
+    </changeSet>
+</databaseChangeLog>
