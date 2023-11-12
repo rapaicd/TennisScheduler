@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-row-0" author="milica">
+        <insert tableName="user_account">
+            <column name="email" value="admin@gmail.com"/>
+            <!-- password : adminadmin-->
+            <column name="password" value="$2a$12$Z52e/VWiAgxZYlD7lmkHpeja7fkiwWZde8PMs1blovplGT.3tvZle"/>
+            <column name="enabled" value="true"/>
+            <column name="role_id" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
