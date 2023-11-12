@@ -1,0 +1,40 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://eureka:8761/eureka
+      defaultZone: http://localhost:8761/eureka
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+#          issuer-uri: http://authorization:9000
+#          jwk-set-uri: http://authorization:9000/oauth2/jwks
+          issuer-uri: http://localhost:9000
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+  application:
+    name: timeslot
+  datasource:
+    password: postgres
+#    url: jdbc:postgresql://timeslots_db:5432/timeslot_service
+    url: jdbc:postgresql://localhost:5432/timeslot_service
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+#------------liquibase------------#
+    defer-datasource-initialization: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+#------------liquibase------------#
